@@ -1,10 +1,11 @@
-<h1>Listing sellers</h1>
 
-<table>
+<div id="sellers" class='boxit'>
+
+<table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+    <th>Nombre</th>
+    <th>Correo Electronico</th>
+    <th>Telefono</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,9 +16,9 @@
     <td><%= seller.name %></td>
     <td><%= seller.email %></td>
     <td><%= seller.phone %></td>
-    <td><%= link_to 'Show', seller %></td>
-    <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
-    <td><%= link_to 'Destroy', seller, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', seller %></td>
+    <td><%= link_to 'Editar', edit_seller_path(seller) %></td>
+    <td><%= link_to 'Eliminar', seller, :confirm => '¿Estas seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -25,3 +26,4 @@
 <br />
 
 <%= link_to 'New Seller', new_seller_path %>
+</div>
