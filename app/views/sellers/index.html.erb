@@ -1,0 +1,27 @@
+<h1>Listing sellers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sellers.each do |seller| %>
+  <tr>
+    <td><%= seller.name %></td>
+    <td><%= seller.email %></td>
+    <td><%= seller.phone %></td>
+    <td><%= link_to 'Show', seller %></td>
+    <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
+    <td><%= link_to 'Destroy', seller, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Seller', new_seller_path %>
