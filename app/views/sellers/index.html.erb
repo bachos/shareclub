@@ -1,29 +1,6 @@
+<%= title "Vendedores" do -%>
+  <%= menu_item "Agregar Vendedor", new_seller_path, 'icons/add.png' %>
+<%- end -%>
 
-<div id="sellers" class='boxit'>
+<%= render :partial => 'sellers/sellers' %>
 
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <th>Nombre</th>
-    <th>Correo Electronico</th>
-    <th>Telefono</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @sellers.each do |seller| %>
-  <tr>
-    <td><%= seller.name %></td>
-    <td><%= seller.email %></td>
-    <td><%= seller.phone %></td>
-    <td><%= link_to 'Mostrar', seller %></td>
-    <td><%= link_to 'Editar', edit_seller_path(seller) %></td>
-    <td><%= link_to 'Eliminar', seller, :confirm => '¿Estas seguro?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Seller', new_seller_path %>
-</div>

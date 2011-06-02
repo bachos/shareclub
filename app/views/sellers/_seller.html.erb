@@ -1,0 +1,8 @@
+<tr>
+  <td class='first'><%= seller.id %></td>
+  <td><%= seller.name %></td>
+  <td><%= seller.email %></td>
+  <td><%= seller.phone %></td>
+  <td><%= link_to "Editar", edit_seller_path(seller) %></td>	
+  <td class='last'><%= link_to image_tag("icons/destroy.png", :size => '16x16', :class => 'trash'), seller_path(seller), :method => :delete, :confirm => '¿Estas seguro que deseas eliminar este vendedor?' %></td>		
+</tr>
