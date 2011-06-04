@@ -553,7 +553,7 @@ div#note-box.error{
 	display: block;
 	position: relative;
 	overflow: hidden;
-	background: #FFF;
+	background: #202325;
 	border-bottom: 1px solid #000;
 }
 
@@ -561,12 +561,12 @@ div#note-box.error{
 	display: block;
 	position: relative;
 	overflow: hidden;
-	height: 150px;
+	height: 90px;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 #header #header-inside #header-content{
-	height: 120px;
+	height: 60px;
 	display: block;
 	position: relative;
 	overflow: hidden;
@@ -580,7 +580,7 @@ div#note-box.error{
 }
 
 #header #header-inside #header-content #header-top #logo{
-	height: 100px;
+	height: 60px;
 	text-align: right;
 	background: url(../images/header/logo.png) no-repeat;
 	text-indent: -99999em;
@@ -591,7 +591,7 @@ div#note-box.error{
 	display: block;
 	position: relative;
 	overflow: hidden;
-	height: 100px;
+	height: 60px;
 	text-indent: 99999em;
 }
 
@@ -636,7 +636,7 @@ div#note-box.error{
 	border-top: 1px solid #5a5a5a;
 	background: #41464a;	
 	display: block;
-	position: relative; 
+	position: relative;
 	overflow: hidden;
 	height: 30px;
 }
@@ -1180,9 +1180,9 @@ h3{
 
 /* @end */
 
-/* @group Sellers */
+/* @group Sensors */
 
-#sellers{
+#sensors{
 	display: block;
 	position: relative;
 	padding: 10px 10px 5px;	

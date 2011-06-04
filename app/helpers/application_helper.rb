@@ -117,32 +117,8 @@ module ApplicationHelper
   end
 
   def button(name, options={})
-    # <span class="success" style="display:none">✓ saved</span>
     options[:class] = options[:class] ? options[:class] += " default" : "default"
     content_tag(:button, "<span>#{name}</span>".html_safe, options)
-  end
-
-  def css_chart(percentage)
-    html = content_tag(:div, "<span>#{percentage}%</span>".html_safe, :style => "width: #{percentage}%")
-    content_tag(:div, html, :class => 'progress-container')
-  end
-
-  def worker_status(show_image=false)
-
-    if Snorby::Jobs.sensor_cache? && Snorby::Jobs.daily_cache?
-      return content_tag(:span, "OK", :class => 'status ok add_tipsy', :title => 'Success: Everything Looks Good!')
-      #return image_tag('icons/active.png', :class => 'add_tipsy', :title => 'Success: Everything Looks Good!')
-    elsif Snorby::Jobs.sensor_cache?
-      return content_tag(:span, "WARNING", :class => 'status warning add_tipsy', :title => 'Warning: The Daily Cache Job Is Not Running...')
-      #return image_tag('icons/job-fail.png', :class => 'add_tipsy', :title => 'Warning: The Daily Cache Job Is Not In Running...')
-    elsif Snorby::Jobs.daily_cache?
-      return content_tag(:span, "WARNING", :class => 'status warning add_tipsy', :title => 'Warning: The Sensor Cache Job Is Not Running...')
-      #return image_tag('icons/job-fail.png', :class => 'add_tipsy', :title => 'Warning: The Sensor Cache Job Is Not In Running...')
-    else
-      return content_tag(:span, "FAIL", :class => 'status fail add_tipsy', :title => 'ERROR: Both Cache Jobs Are Not Running...')
-      #return image_tag('icons/dead.png', :class => 'add_tipsy', :title => 'ERROR: Both Cache Jobs Are Not Running...')
-    end
-
   end
 
   #

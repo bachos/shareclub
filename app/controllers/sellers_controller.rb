@@ -2,12 +2,12 @@ class SellersController < ApplicationController
   # GET /sellers
   # GET /sellers.xml
   def index
-    @sellers = Seller.all
+    @sellers = Seller.all 
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sellers }
-    end
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @sellers }
+    #end
   end
 
   # GET /sellers/1

@@ -1,29 +1,32 @@
-<%= form_for(@seller) do |f| %>
-  <% if @seller.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+<div id='severity-form' class='grid_12 boxit page'>
+  <%= form_for @seller, :html => { :class => 'validate' } do |f| %>
 
-      <ul>
-      <% @seller.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <% if @seller.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+        <ul>
+          <% @seller.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+	
+    <p>
+      <%= f.label 'Nombre del vendedor' %><br />
+      <%= f.text_field :name, :class => 'required', :placeholder => 'Nombre...', :autocomplete => :off %>
+    </p>
+    <p>
+      <%= f.label 'Telefono' %><br />
+      <%= f.text_field :phone, :class => 'required number', :placeholder => 'Telefono...', :autocomplete => :off %>
+    </p>
+    <p>
+      <%= f.label 'Correo electronico' %><br />
+      <%= f.text_field :email, :class => 'required number', :placeholder => 'Correo...', :autocomplete => :off %>
+    </p>
+    <%= form_actions do %>
+      <%= button "Guardar Vendedor", :class => 'success' %>
+      <%= button "Cancelar", :class => 'warning cancel' %>
+    <% end %>
 <% end %>
+</div>
