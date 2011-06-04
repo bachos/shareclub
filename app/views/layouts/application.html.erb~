@@ -10,8 +10,8 @@
     <link rel="icon" href="/favicon.png" type="image/png" />
    
     <%= csrf_meta_tag %>		
-    <%= include_stylesheets :snorby, :media => 'all' %>
-    <%= include_javascripts :snorby %>
+    <%= stylesheet_link_tag "snorby", :media => 'all' %>
+    <%= javascript_include_tag  :all %>
 
     <%= yield(:header) %>
   </head>
