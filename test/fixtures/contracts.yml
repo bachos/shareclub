@@ -1,0 +1,65 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  owner: MyString
+  fecha: 2011-06-07
+  co_owner: MyString
+  benef_uno: MyString
+  benef_dos: MyString
+  benef_tre: MyString
+  ocupacion: MyString
+  calle: MyString
+  colonia: MyString
+  delegacion: MyString
+  ciudad: MyString
+  estado: MyString
+  cp: MyString
+  tel_casa: MyString
+  tel_trabajo: MyString
+  tel_movil: MyString
+  email: MyString
+  temporada: MyString
+  vigencia: 1
+  tipo_unidad: MyString
+  tipo_unidad: MyString
+  no_personas: 1
+  precio: 1.5
+  pago_inicial: 1.5
+  no_mensual: 1
+  monto_mensual: 1.5
+  fecha_primer_pago: 2011-06-07
+  abono_inicial: 1.5
+  forma_pago: MyString
+  cuota_manto: 1.5
+
+two:
+  owner: MyString
+  fecha: 2011-06-07
+  co_owner: MyString
+  benef_uno: MyString
+  benef_dos: MyString
+  benef_tre: MyString
+  ocupacion: MyString
+  calle: MyString
+  colonia: MyString
+  delegacion: MyString
+  ciudad: MyString
+  estado: MyString
+  cp: MyString
+  tel_casa: MyString
+  tel_trabajo: MyString
+  tel_movil: MyString
+  email: MyString
+  temporada: MyString
+  vigencia: 1
+  tipo_unidad: MyString
+  tipo_unidad: MyString
+  no_personas: 1
+  precio: 1.5
+  pago_inicial: 1.5
+  no_mensual: 1
+  monto_mensual: 1.5
+  fecha_primer_pago: 2011-06-07
+  abono_inicial: 1.5
+  forma_pago: MyString
+  cuota_manto: 1.5

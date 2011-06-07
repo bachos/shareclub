@@ -10,7 +10,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524005853) do
+ActiveRecord::Schema.define(:version => 20110607133759) do
+
+  create_table "contracts", :primary_key => "id_contract", :force => true do |t|
+    t.string   "owner"
+    t.date     "fecha"
+    t.string   "co_owner"
+    t.string   "benef_uno"
+    t.string   "benef_dos"
+    t.string   "benef_tre"
+    t.string   "ocupacion"
+    t.string   "calle"
+    t.string   "colonia"
+    t.string   "delegacion"
+    t.string   "ciudad"
+    t.string   "estado"
+    t.string   "cp"
+    t.string   "tel_casa"
+    t.string   "tel_trabajo"
+    t.string   "tel_movil"
+    t.string   "email"
+    t.string   "temporada"
+    t.integer  "vigencia"
+    t.string   "tipo_unidad"
+    t.integer  "no_personas"
+    t.float    "precio"
+    t.float    "pago_inicial"
+    t.integer  "no_mensual"
+    t.float    "monto_mensual"
+    t.date     "fecha_primer_pago"
+    t.float    "abono_inicial"
+    t.string   "forma_pago"
+    t.float    "cuota_manto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sellers", :force => true do |t|
     t.string   "name"
