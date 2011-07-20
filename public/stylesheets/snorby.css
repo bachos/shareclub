@@ -19,6 +19,23 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 }
+
+h3.cih, caption.cih {
+    background: url("../images/page/title-bg.png") repeat-x scroll 0 bottom #EDEDED;
+    color: #313131;
+    font-size: 1.6em;
+    font-variant: normal;
+    font-weight: bold;
+    height: 35px;
+    letter-spacing: -1px;
+    line-height: 35px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.rnd {
+	margin-top: 15px;
+	border-radius: 5px 5px 0 0;
+}
 body {
 	line-height: 1;
 }
@@ -774,7 +791,26 @@ div#note-box.error{
 	display: block;
 	position: relative;
 }
+/* @end */
 
+/* @group Separator */
+
+#wrapper #content #separator{
+	background: url("../images/page/title-bg.png") repeat-x scroll 0 bottom #EDEDED;
+	height: 35px;
+}
+
+#wrapper #content #separator #separator-header{
+	height: 35px;
+	line-height: 35px;
+	font-weight: bold;
+	text-decoration: none;
+	font-variant: normal;
+	letter-spacing: -1px;
+	font-size: 1.6em;
+	text-shadow: #fff 0 1px 0;
+	color: #313131;
+}
 /* @end */
 
 /* @group Title */
