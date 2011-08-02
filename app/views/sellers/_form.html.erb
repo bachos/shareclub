@@ -22,7 +22,7 @@
     </p>
     <p>
       <%= f.label 'Correo electronico' %><br />
-      <%= f.text_field :email, :class => 'required number', :placeholder => 'Correo...', :autocomplete => :off %>
+      <%= f.email_field :email, :placeholder => 'Correo...', :autocomplete => :off %>
     </p>
     <%= form_actions do %>
       <%= button "Guardar Vendedor", :class => 'success' %>

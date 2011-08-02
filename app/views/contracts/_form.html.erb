@@ -84,75 +84,77 @@
     <div class="grid_6">
       <p>
         <%= f.label 'Telefono de Casa' %><br />
-        <%= f.text_field :tel_casa %>
+        <%= f.text_field :tel_casa, :autocomplete => :off, :class => 'required' %>
       </p>
       
       <p>
         <%= f.label 'Telefono de Oficina' %><br />
-        <%= f.text_field :tel_trabajo %>
+        <%= f.text_field :tel_trabajo, :autocomplete => :off, :class => 'required' %>
       </p>
     </div>
        
    <div class="grid_5">
    	 <p>
        <%= f.label 'Correo Electronico'%><br />
-       <%= f.text_field :email %>
-     </p> 
+       <%= f.email_field :email %>
+     </p><br />
      
      <p>
        <%= f.label 'Telefono Movil' %><br />
-       <%= f.text_field :tel_movil %> 
+       <%= f.text_field :tel_movil, :autocomplete => :off, :class => 'required'%> 
      </p>
    </div>
-  
-  <div class="grid_4 alpha">
-    <%= f.label 'Temporada' %><br />
-    <%= f.text_field :temporada %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label 'Vigencia' %><br />
-    <%= f.text_field :vigencia %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label 'Tipo Unidad' %><br />
-    <%= f.text_field :tipo_unidad %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label 'No Personas' %><br />
-    <%= f.text_field :no_personas %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label 'Precio' %><br />
-    <%= f.text_field :precio %>
-  </div>
-  <div class="grid_4 alpha"> 
-      <%= f.label 'Pago Inicial' %><br />
-      <%= f.text_field :pago_inicial %>
-  </div>
-  <div class="grid_4 alpha">
-      <%= f.label :no_mensual %><br />
-      <%= f.text_field :no_mensual %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label :monto_mensual %><br />
-    <%= f.text_field :monto_mensual %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label :abono_inicial %><br />
-    <%= f.text_field :abono_inicial %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label :forma_pago %><br />
-    <%= f.text_field :forma_pago %>
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label :fecha_primer_pago %><br />
-    <%= f.date_select :fecha_primer_pago %><br />
-  </div>
-  <div class="grid_4 alpha">
-    <%= f.label :cuota_manto %><br />
-    <%= f.text_field :cuota_manto %>
-  </div>
+   <div id="separator" class="shadow grid_12">
+      <div id="separator-header" class="grid_6">Datos Financieros</div>            	
+   </div>
+   <div class="grid_4 alpha">
+     <br /><%= f.label 'Temporada' %><br />
+     <%= f.text_field :temporada, :autocomplete => :off, :size => '25', :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <br /><%= f.label 'Tipo Unidad' %><br />
+     <%= f.text_field :tipo_unidad, :autocomplete => :off, :size => '25', :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <br /><%= f.label :forma_pago %><br />
+     <%= f.text_field :forma_pago, :autocomplete => :off, :size => '15', :class => 'required'%>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label 'No Personas' %><br />
+     <%= f.number_field :no_personas, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label 'Precio' %><br />
+     <%= f.number_field :precio, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha"> 
+     <%= f.label 'Enganche' %><br />
+     <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label 'Numero Mensualidades' %><br />
+     <%= f.number_field :no_mensual, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label 'Monto de la mensualidad' %><br />
+     <%= f.number_field :monto_mensual, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label :abono_inicial %><br />
+     <%= f.number_field :abono_inicial, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label 'Vigencia' %><br />
+     <%= f.number_field :vigencia, :autocomplete => :off, :class => 'required' %>
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label :fecha_primer_pago %><br />
+     <%= f.date_select :fecha_primer_pago, :autocomplete => :off, :class => 'required' %><br />
+   </div>
+   <div class="grid_4 alpha">
+     <%= f.label :cuota_manto %><br />
+     <%= f.number_field :cuota_manto, :autocomplete => :off, :class => 'required' %>
+   </div>
   
   
   <div class="grid_6">
@@ -164,4 +166,3 @@
   </div>
 <% end %>
 </div>
-

@@ -727,6 +727,21 @@ var Snorby = {
 			});
 		},
 		
+		contract_calculous: function(){
+			$('input#contract_precio').live('change', function() {
+				$('input#contract_pago_inicial').val(30000);
+			});
+			
+			$('input#contract_no_mensual').live('change', function () {
+		        $('input#contract_monto_mensual').val(function (){			
+                    var num_men = $('input#contract_no_mensual').val();
+           
+                    return $('input#contract_pago_inicial').val() / num_men;
+		        });
+         	});
+			
+		},
+				
 		persistence_selections: function() {
 			
 			$('input#event-selector').live('change', function() {
@@ -1075,6 +1090,7 @@ jQuery(document).ready(function($) {
 	Snorby.helpers.input_style();
 	Snorby.helpers.persistence_selections();
 	Snorby.helpers.pagenation();
+	Snorby.helpers.contract_calculous();
 	
 	Snorby.pages.classifications();
 	Snorby.pages.dashboard();
