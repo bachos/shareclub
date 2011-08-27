@@ -1,0 +1,8 @@
+<tr>
+  <td class='first'><%= liner.id %></td>
+  <td><%= liner.name %></td>
+  <td><%= liner.email %></td>
+  <td><%= liner.phone %></td>
+  <td><%= link_to "Editar", edit_liner_path(liner) %></td>	
+  <td class='last'><%= link_to image_tag("icons/destroy.png", :size => '16x16', :class => 'trash'), liner_path(liner), :method => :delete, :confirm => '¿Estas seguro que deseas eliminar este liner?' %></td>		
+</tr>

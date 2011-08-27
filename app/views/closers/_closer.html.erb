@@ -1,0 +1,8 @@
+<tr>
+  <td class='first'><%= closer.id %></td>
+  <td><%= closer.name %></td>
+  <td><%= closer.email %></td>
+  <td><%= closer.phone %></td>
+  <td><%= link_to "Editar", edit_closer_path(closer) %></td>	
+  <td class='last'><%= link_to image_tag("icons/destroy.png", :size => '16x16', :class => 'trash'), closer_path(closer), :method => :delete, :confirm => '¿Estas seguro que deseas eliminar este closer?' %></td>		
+</tr>

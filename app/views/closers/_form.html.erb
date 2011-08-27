@@ -1,0 +1,32 @@
+<div id='severity-form' class='grid_12 boxit page'>
+  <%= form_for @closer, :html => { :class => 'validate' } do |f| %>
+
+    <% if @closer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@closer.errors.count, "error") %> prohibited this closer from being saved:</h2>
+        <ul>
+          <% @closer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+	
+    <p>
+      <%= f.label 'Nombre del closer' %><br />
+      <%= f.text_field :name, :class => 'required', :placeholder => 'Nombre...', :autocomplete => :off %>
+    </p>
+    <p>
+      <%= f.label 'Telefono' %><br />
+      <%= f.text_field :phone, :class => 'required number', :placeholder => 'Telefono...', :autocomplete => :off %>
+    </p>
+    <p>
+      <%= f.label 'Correo electronico' %><br />
+      <%= f.email_field :email, :placeholder => 'Correo...', :autocomplete => :off %>
+    </p>
+    <%= form_actions do %>
+      <%= button "Guardar Closer", :class => 'success' %>
+      <%= button "Cancelar", :class => 'warning cancel' %>
+    <% end %>
+<% end %>
+</div>

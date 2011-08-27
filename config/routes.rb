@@ -4,6 +4,8 @@ Shareclub::Application.routes.draw do
 
   resources :contracts
   resources :sellers
+  resources :liners
+  resources :closers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
