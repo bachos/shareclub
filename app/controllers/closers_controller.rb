@@ -1,4 +1,4 @@
-class closersController < ApplicationController
+class ClosersController < ApplicationController
   # GET /closers
   # GET /closers.xml
   def index
