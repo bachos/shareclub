@@ -11,12 +11,23 @@
     <div id="menu">
       <ul class='container_12'>
         <li class='blank first'></li>
-	    <li><%= link_to "Vendedores", sellers_path %></li>
-	    <li><%= link_to "Closers", closers_path %></li>
-	    <li><%= link_to "Liners", liners_path %></li>
         <li><%= link_to "Contratos", contracts_path %></li>
         <li class='blank last'></li>
-      </u>
+        
+        <li class='administration right'><%= link_to "Administración", sellers_path %></li>
+        <dl id="admin-menu" style='display:none;'>
+          <dd>
+          	<%= link_to "Vendedores", sellers_path %>
+          </dd>
+          <div class="admin-arrow"></div>
+          <dd>
+            <%= link_to "Liners", liners_path %>            
+          </dd>
+          <dd>
+            <%= link_to "Closers", closers_path %>
+          </dd>
+        </dl>
+      </ul>
     </div>
   </div>
 </div>
