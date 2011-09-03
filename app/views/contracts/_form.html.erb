@@ -1,7 +1,7 @@
 <div id='contracts-form' class='grid_12 boxit page'>
-<%= form_for(@contract) do |f| %>
-  <% if @contract.errors.any? %>
-    <div id="error_explanation">
+  <%= form_for(@contract, :html => { :multipart => true, :class => 'basic-form validate'}) do |f| %>
+    <% if @contract.errors.any? %>
+      <div id="error_explanation">
       <h2><%= pluralize(@contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
 
       <ul>
@@ -10,159 +10,151 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
   
-  <div id='form-holder'> 
-    <div class="grid_6">   
-    <p>
-      <%= f.label 'Fecha' %><br />
-      <%= f.date_select :fecha, :autocomplete => :off, :class => 'required' %>
-    </p><br />
-  	<p> 
-      <%= f.label 'Titular' %><br />
-      <%= f.text_field :owner, :placeholder => 'Nombre del Titular...', :autocomplete => :off, :class => 'required' %>
-    </p>  
+    <div id='form-holder'> 
+      <div class="grid_6">   
+        <p>
+          <%= f.label 'Fecha' %><br />
+          <%= f.date_select :fecha, :autocomplete => :off, :class => 'required' %>
+        </p>
+  	    <p> 
+          <%= f.label 'Titular' %><br />
+          <%= f.text_field :owner, :placeholder => 'Nombre del Titular...', :autocomplete => :off, :class => 'required' %>
+        </p>  
+        <p>
+          <%= f.label 'Co-Propietario' %><br />
+          <%= f.text_field :co_owner, :placeholder => 'Nombre del Co-Propietario...', :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p>
+          <%= f.label 'Ocupación' %><br />
+          <%= f.text_field :ocupacion, :placeholder => 'Ocupacion...', :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>
+      <div class="grid_5">  
+        <p>
+          <%= f.label 'Beneficiarios' %><br />
+          <%= f.text_field :benef_uno, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required'%><br />
+          <%= f.text_field :benef_dos, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required' %><br />
+          <%= f.text_field :benef_tre, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required' %><br />
+        </p>
+      </div>
     </div>
-    <div class="grid_6">
-    <p>
-      <%= f.label 'Co-Propietario' %><br />
-      <%= f.text_field :co_owner, :placeholder => 'Nombre del Co-Propietario...', :autocomplete => :off, :class => 'required' %>
-    </p>
-    <p>
-      <%= f.label 'Ocupación' %><br />
-      <%= f.text_field :ocupacion, :placeholder => 'Ocupacion...', :autocomplete => :off, :class => 'required' %>
-    </p>
-    </div>
-    <div class="grid_5">  
-    <p>
-      <%= f.label 'Beneficiarios' %><br />
-      <%= f.text_field :benef_uno, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required'%><br />
-      <%= f.text_field :benef_dos, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required' %><br />
-      <%= f.text_field :benef_tre, :placeholder => 'Nombre del Beneficiario...', :autocomplete => :off, :class => 'required' %><br />
-    </p>
-    </div>
-    <div id="separator" class="shadow grid_12">
-      <div id="separator-header" class="grid_6"> Datos Personales</div>            	
-    </div>
-     
-    <div class='grid_6'>
-      <br />   
-      <p>
-        <%= f.label 'Calle' %><br />
-        <%= f.text_field :calle, :placeholder => 'Nombre de la Calle...', :autocomplete => :off, :class => 'required' %>
-      </p>
-      
-      <p>
-        <%= f.label 'Colonia' %><br />
-        <%= f.text_field :colonia, :placeholder => 'Nombre de la Colonia...', :autocomplete => :off, :class => 'required' %>
-      </p>
-      
-      <p>
-      	<%= f.label 'Estado' %><br />
-        <%= f.text_field :estado, :placeholder => 'Nombre de la Colonia...', :autocomplete => :off, :class => 'required' %>
-      </p>
-    </div>
-        
-    <div class="grid_5 pad-left omega">
-      <br />	
-      <p>
+    <div class='pc-settings'> 
+      <div class='grid_6'>
+        <p class='pc-settings'>
+          <%= f.label 'Calle' %><br />
+          <%= f.text_field :calle, :placeholder => 'Nombre de la Calle...', :autocomplete => :off, :class => 'required' %>
+        </p>      
+        <p class='pc-settings'>
+          <%= f.label 'Colonia' %><br />
+          <%= f.text_field :colonia, :placeholder => 'Nombre de la Colonia...', :autocomplete => :off, :class => 'required' %>
+        </p>      
+        <p class='pc-settings'>
+          <%= f.label 'Estado' %><br />
+          <%= f.text_field :estado, :placeholder => 'Nombre de la Colonia...', :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>        
+    <div class="grid_5">
+      <p class="pc-settings">
     	<%= f.label 'Delegación' %><br />
         <%= f.text_field :delegacion, :placeholder => 'Nombre de la Delegacion...', :autocomplete => :off, :class => 'required' %>
       </p>
- 
-      <p>
+      <p class="pc-settings">
         <%= f.label 'Ciudad' %><br />
         <%= f.text_field :ciudad, :placeholder => 'Nombre de la Ciudad...', :autocomplete => :off, :class => 'required' %>
       </p>
-      
-      <p>
+      <p class="pc-settings">
         <%= f.label 'Codigo Postal' %><br />
         <%= f.text_field :cp, :placeholder => 'Codigo Postal...', :autocomplete => :off, :class => 'required number' %>
       </p>   
     </div>
    
     <div class="grid_6">
-      <p>
+      <p class="pc-settings">
         <%= f.label 'Telefono de Casa' %><br />
         <%= f.text_field :tel_casa, :autocomplete => :off, :class => 'required' %>
       </p>
       
-      <p>
+      <p class="pc-settings">
         <%= f.label 'Telefono de Oficina' %><br />
         <%= f.text_field :tel_trabajo, :autocomplete => :off, :class => 'required' %>
       </p>
     </div>
        
-   <div class="grid_5">
-   	 <p>
-       <%= f.label 'Correo Electronico'%><br />
-       <%= f.email_field :email %>
-     </p><br />
-     
-     <p>
-       <%= f.label 'Telefono Movil' %><br />
-       <%= f.text_field :tel_movil, :autocomplete => :off, :class => 'required'%> 
-     </p>
-   </div>
-   <div id="separator" class="shadow grid_12">
-      <div id="separator-header" class="grid_6">Datos Financieros</div>            	
-   </div>
-   <div class="grid_4 alpha">
-     <br /><%= f.label 'Temporada' %><br />
-     <%= f.text_field :temporada, :autocomplete => :off, :size => '25', :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <br /><%= f.label 'Tipo Unidad' %><br />
-     <%= f.text_field :tipo_unidad, :autocomplete => :off, :size => '25', :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <br /><%= f.label :forma_pago %><br />
-     <%= f.text_field :forma_pago, :autocomplete => :off, :size => '15', :class => 'required'%>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label 'No Personas' %><br />
-     <%= f.number_field :no_personas, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label 'Precio' %><br />
-     <%= f.number_field :precio, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha"> 
-     <%= f.label 'Enganche' %><br />
-     <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label 'Numero Mensualidades' %><br />
-     <%= f.number_field :no_mensual, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label 'Monto de la mensualidad' %><br />
-     <%= f.number_field :monto_mensual, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label :abono_inicial %><br />
-     <%= f.number_field :abono_inicial, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label 'Vigencia' %><br />
-     <%= f.number_field :vigencia, :autocomplete => :off, :class => 'required' %>
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label :fecha_primer_pago %><br />
-     <%= f.date_select :fecha_primer_pago, :autocomplete => :off, :class => 'required' %><br />
-   </div>
-   <div class="grid_4 alpha">
-     <%= f.label :cuota_manto %><br />
-     <%= f.number_field :cuota_manto, :autocomplete => :off, :class => 'required' %>
-   </div>
+    <div class="grid_5">
+   	  <p class='pc-settings'>
+        <%= f.label 'Correo Electronico'%><br />
+        <%= f.email_field :email %>
+      </p>
+      <p>
+        <%= f.label 'Telefono Movil' %><br />
+        <%= f.text_field :tel_movil, :autocomplete => :off, :class => 'required'%> 
+      </p>
+    </div>
+  </div>
+    <div class='pc-settings'>
+      <div class="grid_6">
+   	    <p class="pc-settings">
+          <%= f.label 'Temporada' %><br />
+          <%= f.text_field :temporada, :autocomplete => :off, :size => '25', :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Vigencia' %><br />
+          <%= f.number_field :vigencia, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Tipo Unidad' %><br />
+          <%= f.text_field :tipo_unidad, :autocomplete => :off, :size => '25', :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Número de Personas' %><br />
+          <%= f.number_field :no_personas, :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>
+      <div class="grid_5">  
+        <p class="pc-settings">
+          <%= f.label 'Precio' %><br />
+          <%= f.number_field :precio, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings"> 
+          <%= f.label 'Pago Inicial' %><br />
+          <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Número de Mensualidades' %><br />
+          <%= f.number_field :no_mensual, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Monto de la mensualidad' %><br />
+          <%= f.number_field :monto_mensual, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label "Empezando a pagar" %><br />
+          <%= f.date_select :fecha_primer_pago, :autocomplete => :off, :class => 'required' %><br />
+        </p>
+      </div>
+    </div>   
+    <div class='pc-settings'> 
+      <div class='grid_6'>
+   	    <p class="pc-settings">
+          <%= f.label "Entrega a Cuenta" %><br />
+          <%= f.number_field :abono_inicial, :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label "Forma de Pago" %><br />
+          <%= f.text_field :forma_pago, :autocomplete => :off, :size => '15', :class => 'required'%>
+        </p>
+        <p class="pc-settings">
+          <%= f.label "Couta de Mantenimiento del año en curso" %><br />
+          <%= f.number_field :cuota_manto, :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>
+    </div>
   
-  
-  <div class="grid_6">
-  <%= form_actions do %>
-      <%= button "Guardar Contrato", :class => 'success' %>
-      <%= button "Cancelar", :class => 'warning cancel' %>
+    <%= form_actions do %>
+       <%= button "Guardar Contrato", :class => 'success' %>
+       <%= button "Cancelar", :class => 'warning cancel' %>
+    <% end %>
   <% end %>
-  </div>
-  </div>
-<% end %>
 </div>

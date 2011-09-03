@@ -3077,7 +3077,7 @@ img.avatar-small{
 	border: 3px solid #ededed;	
 }
 
-#general-settings div.pc-settings{
+#contracts-form div.pc-settings{
 	background: #fbfbfb;
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fff',endColorstr='#fbfbfb');
 	background: -webkit-gradient(linear,0% 0,0% 100%,from(#fff),to(#fbfbfb));
@@ -3089,10 +3089,11 @@ img.avatar-small{
 	border: 1px solid #d1d1d1;
 }
 
-#general-settings div.pc-settings p{
+#contracts-form div.pc-settings p{
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
 
 #settings .crop-holder{
 	display: block;
