@@ -117,10 +117,14 @@
           <%= f.label 'Precio' %><br />
           <%= f.number_field :precio, :autocomplete => :off, :class => 'required' %>
         </p>
+        <p class="pc-settings">
+          <%= f.label 'Porcentaje de Enganche' %><br />
+          <%= f.number_field :porcentaje_enganche, :autocomplete => :off, :class => 'required' %>
+        </p>        
         <p class="pc-settings"> 
           <%= f.label 'Pago Inicial' %><br />
           <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required' %>
-        </p>
+        </p>        
         <p class="pc-settings">
           <%= f.label 'Número de Mensualidades' %><br />
           <%= f.number_field :no_mensual, :autocomplete => :off, :class => 'required' %>

@@ -1,0 +1,6 @@
+<tr>
+  <td class='first'><%= multiplier.id %></td>
+  <td><%= multiplier.valor %></td>
+  <td><%= link_to "Editar", edit_multiplier_path(multiplier) %></td>	
+  <td class='last'><%= link_to image_tag("icons/destroy.png", :size => '16x16', :class => 'trash'), multiplier_path(multiplier), :method => :delete, :confirm => '¿Estas seguro que deseas eliminar este multiplicador?' %></td>		
+</tr>

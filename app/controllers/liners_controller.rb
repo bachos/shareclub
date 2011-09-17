@@ -43,7 +43,7 @@ class LinersController < ApplicationController
     @liner = Liner.new(params[:liner])
 
     respond_to do |format|
-      if @Liner.save
+      if @liner.save
         format.html { redirect_to(@liner, :notice => 'Liner was successfully created.') }
         format.xml  { render :xml => @liner, :status => :created, :location => @liner }
       else
