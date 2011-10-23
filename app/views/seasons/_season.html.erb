@@ -1,0 +1,6 @@
+<tr>
+  <td class='first'><%= season.id %></td>
+  <td><%= season.name %></td>
+  <td><%= link_to "Editar", edit_season_path(season) %></td>	
+  <td class='last'><%= link_to image_tag("icons/destroy.png", :size => '16x16', :class => 'trash'), season_path(season), :method => :delete, :confirm => '¿Estas seguro que deseas eliminar esta temporada?' %></td>		
+</tr>

@@ -7,6 +7,8 @@ Shareclub::Application.routes.draw do
   resources :liners
   resources :closers
   resources :multipliers
+  resources :seasons
+  resources :unittypes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

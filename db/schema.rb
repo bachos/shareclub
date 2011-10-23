@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110917193250) do
+ActiveRecord::Schema.define(:version => 20111023204909) do
 
   create_table "closers", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20110917193250) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "porcentaje_enganche"
+    t.float    "gastos_contratacion"
   end
 
   create_table "liners", :force => true do |t|
@@ -90,6 +91,12 @@ ActiveRecord::Schema.define(:version => 20110917193250) do
   end
 
   create_table "unit_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "unittypes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

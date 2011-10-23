@@ -1,0 +1,25 @@
+<div id='severity-form' class='grid_12 boxit page'>
+  <%= form_for @season, :html => { :class => 'validate' } do |f| %>
+
+    <% if @season.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@season.errors.count, "error") %> prohibited this liner from being saved:</h2>
+        <ul>
+          <% @season.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+	
+    <p>
+      <%= f.label 'Nombre' %><br />
+      <%= f.number_field :name, :class => 'required', :placeholder => 'Valor...', :autocomplete => :off %>
+    </p>
+
+    <%= form_actions do %>
+      <%= button "Guardar Temporada", :class => 'success' %>
+      <%= button "Cancelar", :class => 'warning cancel' %>
+    <% end %>
+<% end %>
+</div>

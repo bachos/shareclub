@@ -150,9 +150,15 @@
           <%= f.text_field :forma_pago, :autocomplete => :off, :size => '15', :class => 'required'%>
         </p>
         <p class="pc-settings">
-          <%= f.label "Couta de Mantenimiento del año en curso" %><br />
-          <%= f.number_field :cuota_manto, :autocomplete => :off, :class => 'required' %>
+          <%= f.label "Costo de mantenimiento" %><br />
+          <%= f.text_field :cuota_manto, :autocomplete => :off, :size => '15', :class => 'required'%>
         </p>
+      </div>
+      <div class='grid_5'>
+        <p class="pc-settings">
+          <%= f.label "Gastos de contratación" %><br />
+          <%= f.number_field :gastos_contratacion, :autocomplete => :off, :placeholder => 'Monto en pesos 0.00', :class => 'required' %>
+        </p>        
       </div>
     </div>
   
