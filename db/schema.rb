@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023204909) do
+ActiveRecord::Schema.define(:version => 20111112212904) do
 
   create_table "closers", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20111023204909) do
     t.datetime "updated_at"
     t.integer  "porcentaje_enganche"
     t.float    "gastos_contratacion"
+    t.integer  "liner_id"
+    t.integer  "closer_id"
+    t.integer  "seller_id"
+    t.integer  "multiplier_id"
+    t.float    "saldo_referencia"
+    t.float    "total_enganche"
   end
 
   create_table "liners", :force => true do |t|

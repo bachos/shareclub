@@ -55,44 +55,44 @@
           <%= f.text_field :estado, :placeholder => 'Nombre de la Colonia...', :autocomplete => :off, :class => 'required' %>
         </p>
       </div>        
-    <div class="grid_5">
-      <p class="pc-settings">
-    	<%= f.label 'Delegación' %><br />
-        <%= f.text_field :delegacion, :placeholder => 'Nombre de la Delegacion...', :autocomplete => :off, :class => 'required' %>
-      </p>
-      <p class="pc-settings">
-        <%= f.label 'Ciudad' %><br />
-        <%= f.text_field :ciudad, :placeholder => 'Nombre de la Ciudad...', :autocomplete => :off, :class => 'required' %>
-      </p>
-      <p class="pc-settings">
-        <%= f.label 'Codigo Postal' %><br />
-        <%= f.text_field :cp, :placeholder => 'Codigo Postal...', :autocomplete => :off, :class => 'required number' %>
-      </p>   
-    </div>
+      <div class="grid_5">
+        <p class="pc-settings">
+    	  <%= f.label 'Delegación' %><br />
+          <%= f.text_field :delegacion, :placeholder => 'Nombre de la Delegacion...', :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Ciudad' %><br />
+          <%= f.text_field :ciudad, :placeholder => 'Nombre de la Ciudad...', :autocomplete => :off, :class => 'required' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label 'Codigo Postal' %><br />
+          <%= f.text_field :cp, :placeholder => 'Codigo Postal...', :autocomplete => :off, :class => 'required number' %>
+        </p>   
+      </div>
    
-    <div class="grid_6">
-      <p class="pc-settings">
-        <%= f.label 'Telefono de Casa' %><br />
-        <%= f.text_field :tel_casa, :autocomplete => :off, :class => 'required' %>
-      </p>
+      <div class="grid_6">
+        <p class="pc-settings">
+          <%= f.label 'Telefono de Casa' %><br />
+          <%= f.text_field :tel_casa, :autocomplete => :off, :class => 'required' %>
+        </p>
       
-      <p class="pc-settings">
-        <%= f.label 'Telefono de Oficina' %><br />
-        <%= f.text_field :tel_trabajo, :autocomplete => :off, :class => 'required' %>
-      </p>
-    </div>
+        <p class="pc-settings">
+          <%= f.label 'Telefono de Oficina' %><br />
+          <%= f.text_field :tel_trabajo, :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>
        
-    <div class="grid_5">
-   	  <p class='pc-settings'>
-        <%= f.label 'Correo Electronico'%><br />
-        <%= f.email_field :email %>
-      </p>
-      <p>
-        <%= f.label 'Telefono Movil' %><br />
-        <%= f.text_field :tel_movil, :autocomplete => :off, :class => 'required'%> 
-      </p>
+      <div class="grid_5">
+   	    <p class='pc-settings'>
+          <%= f.label 'Correo Electronico'%><br />
+          <%= f.email_field :email %>
+        </p>
+        <p>
+          <%= f.label 'Telefono Movil' %><br />
+          <%= f.text_field :tel_movil, :autocomplete => :off, :class => 'required'%> 
+        </p>
+      </div>
     </div>
-  </div>
     <div class='pc-settings'>
       <div class="grid_6">
    	    <p class="pc-settings">
@@ -103,6 +103,8 @@
           <%= f.label 'Vigencia' %><br />
           <%= f.number_field :vigencia, :autocomplete => :off, :class => 'required' %>
         </p>
+      </div>
+      <div class="grid_5">
         <p class="pc-settings">
           <%= f.label 'Tipo Unidad' %><br />
           <%= f.text_field :tipo_unidad, :autocomplete => :off, :size => '25', :class => 'required' %>
@@ -112,53 +114,73 @@
           <%= f.number_field :no_personas, :autocomplete => :off, :class => 'required' %>
         </p>
       </div>
-      <div class="grid_5">  
+    </div>     
+    <div class='pc-settings'>
+      <div class="grid_6">
         <p class="pc-settings">
           <%= f.label 'Precio' %><br />
           <%= f.number_field :precio, :autocomplete => :off, :class => 'required' %>
         </p>
         <p class="pc-settings">
-          <%= f.label 'Porcentaje de Enganche' %><br />
+          <%= f.label 'Porcentaje De Enganche' %><br />
           <%= f.number_field :porcentaje_enganche, :autocomplete => :off, :class => 'required' %>
         </p>        
         <p class="pc-settings"> 
-          <%= f.label 'Pago Inicial' %><br />
-          <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required' %>
-        </p>        
+          <%= f.label 'Enganche' %><br />
+          <%= f.number_field :pago_inicial, :autocomplete => :off, :class => 'required', :readonly => 'true' %>
+        </p>
+        <p class="pc-settings">
+          <%= f.label "Gastos de contratación" %><br />
+          <%= f.number_field :gastos_contratacion, :autocomplete => :off, :placeholder => 'Monto en pesos 0.00', :class => 'required' %>
+        </p>
+        <p class="pc-settings"> 
+          <%= f.label 'Total De Enganche + Gastos De Contratación' %><br />
+          <%= f.number_field :total_enganche, :autocomplete => :off, :class => 'required', :readonly => 'true' %>
+       </p>        
+      </div>
+      <div class="grid_5">  
+       <p class="pc-settings">
+          <%= f.label 'Muntiplicadores' %><br />
+		  <%= select_tag 'contract[multiplier_id]', options_from_collection_for_select(Multiplier.all, :id, :valor), { :required => "true", :id => "multiplier_select" } %>
+		</p>
+
+        <p class="pc-settings">
+          <%= f.label 'Saldo referencia' %><br />
+          <%= f.number_field :saldo_referencia, :autocomplete => :off, :class => 'required', :readonly => 'true' %>
+        </p>
+                        
         <p class="pc-settings">
           <%= f.label 'Número de Mensualidades' %><br />
           <%= f.number_field :no_mensual, :autocomplete => :off, :class => 'required' %>
         </p>
+        
         <p class="pc-settings">
           <%= f.label 'Monto de la mensualidad' %><br />
-          <%= f.number_field :monto_mensual, :autocomplete => :off, :class => 'required' %>
+          <%= f.number_field :monto_mensual, :autocomplete => :off, :class => 'required', :readonly => 'true' %>
         </p>
         <p class="pc-settings">
           <%= f.label "Empezando a pagar" %><br />
           <%= f.date_select :fecha_primer_pago, :autocomplete => :off, :class => 'required' %><br />
+        </p>
+        <p class="pc-settings">
+          <%= f.label "Forma de Pago" %><br />
+          <%= f.text_field :forma_pago, :autocomplete => :off, :size => '25', :class => 'required'%>
         </p>
       </div>
     </div>   
     <div class='pc-settings'> 
       <div class='grid_6'>
    	    <p class="pc-settings">
-          <%= f.label "Entrega a Cuenta" %><br />
+          <%= f.label "Anticipo" %><br />
           <%= f.number_field :abono_inicial, :autocomplete => :off, :class => 'required' %>
         </p>
         <p class="pc-settings">
-          <%= f.label "Forma de Pago" %><br />
-          <%= f.text_field :forma_pago, :autocomplete => :off, :size => '15', :class => 'required'%>
-        </p>
-        <p class="pc-settings">
           <%= f.label "Costo de mantenimiento" %><br />
-          <%= f.text_field :cuota_manto, :autocomplete => :off, :size => '15', :class => 'required'%>
+          <%= f.number_field :cuota_manto, :autocomplete => :off, :class => 'required'%>
         </p>
       </div>
       <div class='grid_5'>
-        <p class="pc-settings">
-          <%= f.label "Gastos de contratación" %><br />
-          <%= f.number_field :gastos_contratacion, :autocomplete => :off, :placeholder => 'Monto en pesos 0.00', :class => 'required' %>
-        </p>        
+       
       </div>
     </div>
   

@@ -133,6 +133,13 @@ function set_classification (class_id) {
 	};
 }
 
+function porcentaje(precio, porcentaje){
+	var multi = porcentaje / 100;		
+	var enganche_total = precio * multi;
+		
+	return enganche_total.toFixed(2);
+}
+ 
 function update_note_count (event_id, data) {
 	
 	var event_row = $('li#'+event_id+' div.row div.timestamp');
@@ -188,6 +195,53 @@ var Snorby = {
 
 	},
 	
+	contracts: {
+	    events: function (){
+	    	$('#contract_precio').live('change', function (e) {
+		    	$('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(),
+		    	                                     $('#contract_porcentaje_enganche').val()));
+		    	$('#contract_pago_inicial').attr("readonly", true);
+		    	/*$('#id_rest_enganche').attr("disabled", true);
+		    	$('#id_total_enganche').attr("disabled", true);
+		    	$('#id_saldo_referencia').attr("disabled", true);
+		    	$('#id_importe_mensualidad').attr("disabled", true);*/
+		    	$('#id_costo_contratacion').change();
+		    	$('#id_factor').change();
+		    	$('#id_num_mensualidades').change();
+           });
+           
+           $('#contract_porcentaje_enganche').live('change', function (e) {
+		       $('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(), 
+		                                            $('#contract_porcentaje_enganche').val()));
+    	       //$('#id_costo_contratacion').change();
+    	       //$('#id_factor').change();
+    	       //$('#id_num_mensualidades').change();
+          });
+	
+	      $('#multiplier_select').live('change', function (e) {
+	           var factor = $('#multiplier_select option:selected').text();
+               var saldo_referencia = $('#contract_precio').val() - $('#contract_pago_inicial').val();
+           
+               $('input#contract_saldo_referencia').val((saldo_referencia * factor).toFixed(2));
+	      });
+	
+	      $('#contract_no_mensual').live('change', function (e) {
+		       var num_men = $('#contract_no_mensual').val();
+		       var saldo_ref = $('#contract_saldo_referencia').val();
+		       var mensualidad = saldo_ref / num_men;
+		       
+               $('#contract_monto_mensual').val(mensualidad.toFixed(2));
+	      });
+	
+          $('#contract_gastos_contratacion').live('change', function (e) {
+    	       var pago_inicial = Number($('#contract_pago_inicial').val());
+    	       var costo_contrato = Number($('#contract_gastos_contratacion').val());
+    	
+    	       $('#contract_total_enganche').val((pago_inicial + costo_contrato).toFixed(2));
+          });	    	
+	    },		
+	},
+	
 	pages: {
 		
 		classifications: function(){
@@ -215,7 +269,7 @@ var Snorby = {
 				return false;
 			});
 
-      $('a.show_map_graph').live('click', function(e) {
+           $('a.show_map_graph').live('click', function(e) {
 				e.preventDefault();
 				$('#box-menu li').removeClass('active');
 				$(this).parent('li').addClass('active');
@@ -329,9 +383,9 @@ var Snorby = {
 				return false;
 			});
 		
-      $('dl.event-sub-menu dd a').live('click', function(event) {
-        $(this).parents('dl').fadeOut('fast');
-      });
+            $('dl.event-sub-menu dd a').live('click', function(event) {
+                $(this).parents('dl').fadeOut('fast');
+            });
 
 			$('button.mass-action').live('click', function(e) {
 				e.preventDefault();
@@ -469,17 +523,17 @@ var Snorby = {
 				return false;
 			});
 		
-      $('a.snorbybox-content').live('click', function(event) {
-        event.preventDefault();
-        $('dl.drop-down-menu').fadeOut('slow');
-				var content = $(this).attr('data-content');
+            $('a.snorbybox-content').live('click', function(event) {
+                event.preventDefault();
+                $('dl.drop-down-menu').fadeOut('slow');
+		        var content = $(this).attr('data-content');
 
-        $.fancybox({
+                $.fancybox({
 					padding: 0,
-          content: content,
+                    content: content,
 					centerOnScroll: true,
-	        zoomSpeedIn: 300, 
-	        zoomSpeedOut: 300,
+	                zoomSpeedIn: 300, 
+	                zoomSpeedOut: 300,
 					overlayShow: true,
 					overlayOpacity: 0.5,
 					overlayColor: '#000',
@@ -492,16 +546,16 @@ var Snorby = {
 					onClosed: function() {
 						Snorby.hotkeys();
 					}
-				});
-      });
+		        });
+            });
 
 			$('a.snorbybox').live('click', function() {
 				$('dl.drop-down-menu').fadeOut('slow');
 				$.fancybox({
 					padding: 0,
 					centerOnScroll: true,
-	        zoomSpeedIn: 300, 
-	        zoomSpeedOut: 300,
+	                zoomSpeedIn: 300, 
+	                zoomSpeedOut: 300,
 					overlayShow: true,
 					overlayOpacity: 0.5,
 					overlayColor: '#000',
@@ -590,16 +644,16 @@ var Snorby = {
 							$('li.event div.event-data').slideUp('fast');
 						});
             
-            Snorby.hotkeys();
+                        Snorby.hotkeys();
 
 					} else {
 						$('li.event div.event-data').slideUp('fast');
 						current_row.slideDown('fast');
             
-            $(document).unbind('keydown', 'left');
-            $(document).unbind('keydown', 'right');
-            $(document).unbind('keydown', 'shift+left');
-            $(document).unbind('keydown', 'shift+right');
+                        $(document).unbind('keydown', 'left');
+                        $(document).unbind('keydown', 'right');
+                        $(document).unbind('keydown', 'shift+left');
+                        $(document).unbind('keydown', 'shift+right');
 					};
 
 				} else {
@@ -610,10 +664,10 @@ var Snorby = {
 					
 					$.get('/events/show/'+sid+'/'+cid, function () {
 
-            $(document).unbind('keydown', 'left');
-            $(document).unbind('keydown', 'right');
-            $(document).unbind('keydown', 'shift+left');
-            $(document).unbind('keydown', 'shift+right');
+                        $(document).unbind('keydown', 'left');
+                        $(document).unbind('keydown', 'right');
+                        $(document).unbind('keydown', 'shift+left');
+                        $(document).unbind('keydown', 'shift+right');
 
 
 						Snorby.helpers.remove_click_events(false);
@@ -1262,6 +1316,8 @@ jQuery(document).ready(function($) {
 	Snorby.pages.classifications();
 	Snorby.pages.dashboard();
 	Snorby.pages.events();
+	
+	Snorby.contracts.events();
 
   $('.add_chosen').chosen();
 
