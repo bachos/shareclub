@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111112212904) do
+ActiveRecord::Schema.define(:version => 20111114152547) do
 
   create_table "closers", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20111112212904) do
     t.integer  "multiplier_id"
     t.float    "saldo_referencia"
     t.float    "total_enganche"
+    t.integer  "season_id"
+    t.integer  "unittype_id"
   end
 
   create_table "liners", :force => true do |t|

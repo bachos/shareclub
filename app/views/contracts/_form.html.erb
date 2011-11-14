@@ -97,21 +97,33 @@
       <div class="grid_6">
    	    <p class="pc-settings">
           <%= f.label 'Temporada' %><br />
-          <%= f.text_field :temporada, :autocomplete => :off, :size => '25', :class => 'required' %>
+		  <%= select_tag 'contract[season_id]', options_from_collection_for_select(Season.all, :id, :name), { :required => "true", :id => "temporada_select" } %>
         </p>
         <p class="pc-settings">
           <%= f.label 'Vigencia' %><br />
           <%= f.number_field :vigencia, :autocomplete => :off, :class => 'required' %>
-        </p>
-      </div>
-      <div class="grid_5">
+        </p>      
         <p class="pc-settings">
           <%= f.label 'Tipo Unidad' %><br />
-          <%= f.text_field :tipo_unidad, :autocomplete => :off, :size => '25', :class => 'required' %>
+		  <%= select_tag 'contract[unittype_id]', options_from_collection_for_select(Unittype.all, :id, :name), { :required => "true", :id => "tipounidad_select" } %>
         </p>
         <p class="pc-settings">
           <%= f.label 'Número de Personas' %><br />
           <%= f.number_field :no_personas, :autocomplete => :off, :class => 'required' %>
+        </p>
+      </div>
+      <div class="grid_5">
+   	    <p class="pc-settings">
+          <%= f.label 'Promotor' %><br />
+		  <%= select_tag 'contract[seller_id]', options_from_collection_for_select(Seller.all, :id, :name), { :required => "true", :id => "seller_select" } %>   	    	
+   	    </p>
+        <p class="pc-settings">
+          <%= f.label 'Liner' %><br />
+		  <%= select_tag 'contract[liner_id]', options_from_collection_for_select(Liner.all, :id, :name), { :required => "true", :id => "liner_select" } %>   	    	
+        </p>      
+        <p class="pc-settings">
+          <%= f.label 'Closer' %><br />
+		  <%= select_tag 'contract[closer_id]', options_from_collection_for_select(Closer.all, :id, :name), { :required => "true", :id => "closer_select" } %>
         </p>
       </div>
     </div>     

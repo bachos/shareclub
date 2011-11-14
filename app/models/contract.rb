@@ -5,4 +5,6 @@ class Contract < ActiveRecord::Base
   belongs_to :closer
   belongs_to :seller
   belongs_to :multiplier
+  belongs_to :season
+  belongs_to :unittype
 end

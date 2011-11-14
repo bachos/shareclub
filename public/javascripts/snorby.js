@@ -198,24 +198,19 @@ var Snorby = {
 	contracts: {
 	    events: function (){
 	    	$('#contract_precio').live('change', function (e) {
-		    	$('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(),
+		    	 $('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(),
 		    	                                     $('#contract_porcentaje_enganche').val()));
-		    	$('#contract_pago_inicial').attr("readonly", true);
-		    	/*$('#id_rest_enganche').attr("disabled", true);
-		    	$('#id_total_enganche').attr("disabled", true);
-		    	$('#id_saldo_referencia').attr("disabled", true);
-		    	$('#id_importe_mensualidad').attr("disabled", true);*/
-		    	$('#id_costo_contratacion').change();
-		    	$('#id_factor').change();
-		    	$('#id_num_mensualidades').change();
-           });
+		    	 $('#contract_gastos_contratacion').change();
+		    	 $('#multiplier_select').change();
+		    	 $('#contract_no_mensual').change();		    	 
+            });
            
-           $('#contract_porcentaje_enganche').live('change', function (e) {
-		       $('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(), 
+            $('#contract_porcentaje_enganche').live('change', function (e) {
+		        $('#contract_pago_inicial').val(porcentaje($('#contract_precio').val(), 
 		                                            $('#contract_porcentaje_enganche').val()));
-    	       //$('#id_costo_contratacion').change();
-    	       //$('#id_factor').change();
-    	       //$('#id_num_mensualidades').change();
+		    	 $('#contract_gastos_contratacion').change();
+		    	 $('#multiplier_select').change();
+		    	 $('#contract_no_mensual').change(); 
           });
 	
 	      $('#multiplier_select').live('change', function (e) {
@@ -223,15 +218,22 @@ var Snorby = {
                var saldo_referencia = $('#contract_precio').val() - $('#contract_pago_inicial').val();
            
                $('input#contract_saldo_referencia').val((saldo_referencia * factor).toFixed(2));
+               $('#contract_no_mensual').change();
 	      });
 	
-	      $('#contract_no_mensual').live('change', function (e) {
+	       $('#contract_no_mensual').live('change', function (e) {
 		       var num_men = $('#contract_no_mensual').val();
 		       var saldo_ref = $('#contract_saldo_referencia').val();
-		       var mensualidad = saldo_ref / num_men;
 		       
-               $('#contract_monto_mensual').val(mensualidad.toFixed(2));
-	      });
+		       if (num_men == '') {
+		       	    $('#contract_monto_mensual').val(saldo_ref);
+		       }
+		       else {
+		       	    var mensualidad = saldo_ref / num_men;
+		            
+		            $('#contract_monto_mensual').val(mensualidad.toFixed(2));
+		       };
+	       });
 	
           $('#contract_gastos_contratacion').live('change', function (e) {
     	       var pago_inicial = Number($('#contract_pago_inicial').val());
